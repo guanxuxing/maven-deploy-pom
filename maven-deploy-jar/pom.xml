@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>maven.deploy.jar</groupId>
+    <artifactId>maven-deploy-jar</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- 发布位置配置  执行命令: mvn deploy 即可, 引用此配置的项目jar会自动更新 -->
+    <distributionManagement>
+        <repository>
+            <id>thirdparty</id>
+            <name>Internal Release Repository</name>
+            <url>http://localhost:8081/nexus/content/repositories/thirdparty/
+            </url>
+        </repository>
+       <!-- <snapshotRepository>
+            <id>thirdparty</id>
+            <name>Internal Snapshot Repository</name>
+            <url>http://localhost:8081/nexus/content/repositories/thirdparty/
+            </url>
+        </snapshotRepository>-->
+    </distributionManagement>
+
+</project>
